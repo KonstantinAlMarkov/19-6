@@ -1,0 +1,40 @@
+---
+ip: "192.168.10.42"
+name: PHPBackend
+memory: 2048
+cpus: 1
+provider: virtualbox
+
+authorize: C:\Users\pshhh\.ssh\homestead-rsa.ppk
+
+keys:
+    - C:\Users\pshhh\.ssh\homestead-rsa_pub
+
+folders:
+    - map: D:\PROG\PHP
+      to: /home/vagrant/code
+
+sites:
+    - map: application.local
+      to: /home/vagrant/code/public
+
+databases:
+    - skill-php
+
+features:
+    - mysql: true
+    - mariadb: false
+    - ohmyzsh: false
+    - webdriver: false
+
+ports:
+     - send: 80
+       to: 80
+     - send: 443
+       to: 443
+
+#     - send: 50000
+#       to: 5000
+#     - send: 7777
+#       to: 777
+#       protocol: udp
